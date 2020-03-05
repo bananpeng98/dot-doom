@@ -30,10 +30,13 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Journals
+(setq org-journal-dir "~/org/journal/")
+(setq org-journal-date-format "%A, %Y-%m-%d")
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
+(setq display-line-numbers-type 'relative)
 
 ;;
 ;;; Keybindings
@@ -52,6 +55,14 @@
       "M-§ S" '+workspace/save-session
       "M-§ ." '+workspace/switch-to
       "M-§ X" '+workspace/kill-session)
+
+(map! :leader
+      "c l" 'evilnc-comment-or-uncomment-lines)
+
+(map! :map python-mode-map
+      :localleader
+      "c" 'python-shell-send-buffer
+      "r" 'run-python)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
