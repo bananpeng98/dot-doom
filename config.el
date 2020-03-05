@@ -56,8 +56,13 @@
       "M-§ ." '+workspace/switch-to
       "M-§ X" '+workspace/kill-session)
 
+; Comment/Uncomment lines
 (map! :leader
       "c l" 'evilnc-comment-or-uncomment-lines)
+
+; Journals
+(map! :leader
+      "j" 'org-journal-new-entry)
 
 (map! :map python-mode-map
       :localleader
